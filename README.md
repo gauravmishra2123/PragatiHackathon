@@ -41,5 +41,41 @@ Makes science learning accessible, immersive, and future-ready.
 
 <img width="1078" alt="Screenshot 2025-04-08 at 8 50 29 AM" src="https://github.com/user-attachments/assets/cfb26977-b05b-4013-9d94-e1a1829f43df" />
 
+# 🧰 Tech Stack / Technologies Used
+
+1. Machine Learning & AI
+TensorFlow, scikit-learn
+Hugging Face Transformers
+spaCy, Rasa (AI Teaching Assistants)
+2. Frontend Visualization
+Three.js, p5.js
+3. Backend & APIs
+FastAPI, Kubernetes
+4. Cloud & Deployment
+AWS / GCP, Firebase
+
+# 🤖 AI Models Used
+
+1. Hugging Face Transformers
+Utilized pre-trained transformer models (e.g., BERT, DistilBERT) for NLP tasks like question answering and content generation.
+2. spaCy
+For entity recognition and syntactic analysis in AI teaching assistants.
+3. Rasa
+Used for building conversational AI agents tailored for educational support.
+4. TensorFlow Models
+Custom-trained models for adaptive learning pathways and student performance prediction.
+5. scikit-learn Models
+Used for lightweight ML tasks such as classification, clustering, and recommendation systems.
+
+# Demo / Screenshots
+
+<img width="250" alt="Screenshot 2025-04-08 at 9 05 04 AM" src="https://github.com/user-attachments/assets/ddf5ddd6-6ce1-4545-b9b0-a13cfa7917a7" />
+
+<img width="250" alt="Screenshot 2025-04-08 at 9 05 27 AM" src="https://github.com/user-attachments/assets/86371d1a-e036-4992-be84-25f1a5efeb36" />
+
+<img width="650" alt="Screenshot 2025-04-08 at 9 06 02 AM" src="https://github.com/user-attachments/assets/fa87b0dc-7370-418c-a5ac-64fa10e36044" />
+
+<img width="667" alt="Screenshot 2025-04-08 at 9 06 29 AM" src="https://github.com/user-attachments/assets/3e612ed2-8a0b-4001-9bed-bd87c2b8e1da" />
+
 
 
