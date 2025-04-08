@@ -69,9 +69,9 @@ Used for lightweight ML tasks such as classification, clustering, and recommenda
 
 # Demo / Screenshots
 
-<img width="250" alt="Screenshot 2025-04-08 at 9 05 04 AM" src="https://github.com/user-attachments/assets/ddf5ddd6-6ce1-4545-b9b0-a13cfa7917a7" />
+<img width="450" alt="Screenshot 2025-04-08 at 9 05 04 AM" src="https://github.com/user-attachments/assets/ddf5ddd6-6ce1-4545-b9b0-a13cfa7917a7" />
 
-<img width="250" alt="Screenshot 2025-04-08 at 9 05 27 AM" src="https://github.com/user-attachments/assets/86371d1a-e036-4992-be84-25f1a5efeb36" />
+<img width="450" alt="Screenshot 2025-04-08 at 9 05 27 AM" src="https://github.com/user-attachments/assets/86371d1a-e036-4992-be84-25f1a5efeb36" />
 
 <img width="650" alt="Screenshot 2025-04-08 at 9 06 02 AM" src="https://github.com/user-attachments/assets/fa87b0dc-7370-418c-a5ac-64fa10e36044" />
 
