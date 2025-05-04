@@ -76,18 +76,32 @@ Custom-trained models for adaptive learning pathways and student performance pre
 5. scikit-learn Models
 Used for lightweight ML tasks such as classification, clustering, and recommendation systems.
 
-# Demo / Screenshots
+# Demo / Screenshots  
 <br>
 
-<img width="611" alt="Screenshot 2025-05-04 at 8 41 01 PM" src="https://github.com/user-attachments/assets/f8d24ce7-8766-4500-9ccf-feac82fd0fc0" />
+<img width="611" alt="Screenshot 2025-05-04 at 8 41 01 PM" src="https://github.com/user-attachments/assets/f8d24ce7-8766-4500-9ccf-feac82fd0fc0" />  
+**1. Glimpses of the Simulation Laboratory**  
+A preview showcasing the interactive simulation environment students can explore.  
 <br>
-<img width="1440" alt="Screenshot 2025-05-04 at 8 42 26 PM" src="https://github.com/user-attachments/assets/356e52ff-79f4-48ca-9487-43221551ff39" />
+
+<img width="1440" alt="Screenshot 2025-05-04 at 8 42 26 PM" src="https://github.com/user-attachments/assets/356e52ff-79f4-48ca-9487-43221551ff39" />  
+**2. Student Dashboard**  
+An organized dashboard for students to access simulations, progress tracking, and learning modules.  
 <br>
-<img width="1440" alt="Screenshot 2025-05-04 at 8 43 38 PM" src="https://github.com/user-attachments/assets/6f6a44c6-2089-46a6-8a33-f6749a6f69b5" />
+
+<img width="1440" alt="Screenshot 2025-05-04 at 8 43 38 PM" src="https://github.com/user-attachments/assets/6f6a44c6-2089-46a6-8a33-f6749a6f69b5" />  
+**3. Simulation Lab Page**  
+Detailed view of the virtual lab interface where students conduct science experiments.  
 <br>
-<img width="1440" alt="Screenshot 2025-05-04 at 8 48 11 PM" src="https://github.com/user-attachments/assets/bf963da8-ec37-4248-af02-457ce8963288" />
+
+<img width="1440" alt="Screenshot 2025-05-04 at 8 48 11 PM" src="https://github.com/user-attachments/assets/bf963da8-ec37-4248-af02-457ce8963288" />  
+**4. Teacher's Dashboard**  
+Dashboard enabling teachers to assign simulations, monitor student performance, and provide feedback.  
 <br>
-<img width="1440" alt="Screenshot 2025-05-04 at 8 48 51 PM" src="https://github.com/user-attachments/assets/9cbbb139-4c59-4948-86ab-c75b85174a18" />
+
+<img width="1440" alt="Screenshot 2025-05-04 at 8 48 51 PM" src="https://github.com/user-attachments/assets/9cbbb139-4c59-4948-86ab-c75b85174a18" />  
+**Additional View**  
+Another interface view illustrating the layout and usability of the simulation platform.  
 
 
 
