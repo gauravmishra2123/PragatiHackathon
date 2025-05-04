@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simulation Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    nav {
+  background: #405E3D;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; /* ✅ Ensures full width */
+  box-sizing: border-box; /* ✅ Prevents layout issues */
+  z-index: 1000;
+}
+
+
+    nav h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: white; /* ✅ change this */
+}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      padding: 0;
+    }
+    nav ul li a {
+  text-decoration: none;
+  color: white; /* ✅ change this */
+  font-weight: bold;
+}
+nav ul li a:hover {
+  color: #ffdd57; /* Matches your tagline highlight */
+}
+
+    .page-layout {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 240px;
+      padding: 20px;
+      background-color: #f3f4f6;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+
+    .sidebar .filter-section {
+      margin-bottom: 30px;
+    }
+
+    .sidebar h3 {
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .sidebar label {
+      display: block;
+      margin: 5px 0;
+    }
+
+    main {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .experiment-heading {
+      background: linear-gradient(135deg, #fce4ec, #e1f5fe);
+      padding: 40px;
+      border-radius: 20px;
+      text-align: center;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      animation: floatIn 1s ease;
+    }
+
+    @keyframes floatIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+    }
+
+    .card iframe {
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 12px;
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      margin-top: 40px;
+      border-top: 4px solid #4fc3f7;
+    }
+    /* Live Search Input Style */
+.search-filter {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-top: 8px;
+  box-sizing: border-box;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+/* Focus effect */
+.search-filter:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 4px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Placeholder style */
+.search-filter::placeholder {
+  color: #888;
+  font-style: italic;
+}
+.simulation-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 1em;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .simulation-card {
+    width: 320px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    padding: 1em;
+    transition: transform 0.3s;
+  }
+
+  .simulation-card:hover {
+    transform: scale(1.02);
+  }
+
+  .simulation-card h3 {
+    font-size: 1.1em;
+    margin-bottom: 0.5em;
+    text-align: center;
+  }
+
+  iframe {
+    border: none;
+    border-radius: 4px;
+  }
+  .simulation-card p {
+  margin-top: 0.75em;
+  font-size: 0.95em;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+}
+.simulation-card button {
+  margin-top: 10px;
+  padding: 8px 16px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95em;
+  transition: background-color 0.3s ease;
+  display: inline-block; /* Ensures it respects text-align center */
+}
+
+.simulation-card button:hover {
+  background-color: #0056b3;
+}
+
+
+
+.site-footer {
+  background-color: #1f2937;
+  color: #f9fafb;
+  padding: 60px 30px 20px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-logo h2 {
+  font-size: 26px;
+  margin-bottom: 5px;
+  color: #38bdf8;
+}
+
+.footer-logo p {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.footer-links h3,
+.footer-newsletter h3,
+.footer-social h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #facc15;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 6px;
+}
+
+.footer-links a {
+  color: #f9fafb;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover {
+  color: #38bdf8;
+}
+
+.footer-newsletter p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.footer-newsletter input[type="email"] {
+  padding: 8px;
+  width: 80%;
+  max-width: 200px;
+  border: none;
+  border-radius: 4px;
+  margin-right: 5px;
+}
+
+.footer-newsletter button {
+  padding: 8px 12px;
+  background-color: #38bdf8;
+  color: #1f2937;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.footer-newsletter button:hover {
+  background-color: #0ea5e9;
+}
+
+.footer-social .social-icons a {
+  color: #f9fafb;
+  font-size: 22px;
+  margin-right: 12px;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.footer-social .social-icons a:hover {
+  color: #38bdf8;
+  transform: scale(1.2);
+}
+
+.footer-social img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s;
+}
+
+.footer-social img:hover {
+  transform: scale(1.2);
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 13px;
+  color: #9ca3af;
+}
+.footer-logo-img {
+  width: 120px; /* adjust size as needed */
+  margin-top: 10px;
+}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div style="display: flex; align-items: center; gap: 0.5rem;">
+      <img src="images/logo_lab.png" alt="LabShala Logo" style="height: 60px; width: auto;" />
+      <h2 style="margin: 0; font-size: 1.5rem; color: white;">LabShala.ai</h2>
+    </div>
+    
+    <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="student.html">Student Dashboard</a></li>
+          <li><a href="#simulation">Simulation</a></li>
+          
+    </ul>
+  </nav>
+
+  <div class="banner">
+    <img src="images/SIMULATION.gif" alt="simulation" />
+  </div>
+
+  <div class="page-layout">
+    <aside class="sidebar">
+      <!-- SUBJECT SECTION -->
+      <div class="filter-section" data-section="subject">
+        <div class="filter-header">
+          <h3>SUBJECT</h3>
+          <button class="toggle-section">▼</button>
+          <button class="select-deselect-all">Select/Deselect All</button>
+          <input type="text" class="search-filter" placeholder="Search...">
+        </div>
+        <ul class="filter-options">
+          <li>
+            <label><input type="checkbox" class="main-category" data-category="Physics" checked> <b>Physics</b></label>
+            <ul class="sub-options">
+              <li><label><input type="checkbox" data-sub="Motion"> Motion</label></li>
+              <li><label><input type="checkbox" data-sub="Physics"> Sound & Waves</label></li>
+              <li><label><input type="checkbox" data-sub="Physics"> Work, Energy & Power</label></li>
+              <li><label><input type="checkbox" data-sub="Physics"> Heat & Thermo</label></li>
+              <li><label><input type="checkbox" data-sub="Physics"> Quantum Phenomena</label></li>
+              <li><label><input type="checkbox" data-sub="Physics"> Light & Radiation</label></li>
+              <li><label><input type="checkbox" data-sub="Physics"> Electricity, Magnets & Circuits</label></li>
+            </ul>
+          </li>
+          <li>
+            <label><input type="checkbox" class="main-category" data-category="Math & Statistics"> <b>Math & Statistics</b></label>
+            <ul class="sub-options">
+              <li><label><input type="checkbox" data-sub="Math & Statistics"> Math Concepts</label></li>
+              <li><label><input type="checkbox" data-sub="Math & Statistics"> Math Applications</label></li>
+            </ul>
+          </li>
+          <li>
+            <label><input type="checkbox" class="main-category" data-category="Chemistry"> <b>Chemistry</b></label>
+            <ul class="sub-options">
+              <li><label><input type="checkbox" data-sub="Chemistry"> General Chemistry</label></li>
+              <li><label><input type="checkbox" data-sub="Chemistry"> Quantum Chemistry</label></li>
+            </ul>
+          </li>
+          <li><label><input type="checkbox" class="main-category" data-category="Earth & Space"><b> Earth & Space</b></label></li>
+          <li><label><input type="checkbox"class="main-category" data-category="Biology"> <b>Biology</b></label></li>
+        </ul>
+      </div>
+    
+      <!-- GRADE LEVEL SECTION -->
+      <div class="filter-section" data-section="grade">
+        <div class="filter-header">
+          <h3>GRADE LEVEL</h3>
+          <button class="toggle-section">▼</button>
+          <button class="select-deselect-all">Select/Deselect All</button>
+        </div>
+        <ul class="filter-options">
+          <li><label><input type="checkbox"> Elementary School</label></li>
+          <li><label><input type="checkbox"> Middle School</label></li>
+          <li><label><input type="checkbox"> High School</label></li>
+          <li><label><input type="checkbox"> University</label></li>
+        </ul>
+      </div>
+    
+      <!-- RELEASE TYPE SECTION -->
+      <div class="filter-section" data-section="release">
+        <div class="filter-header">
+          <h3>RELEASE TYPE</h3>
+          <button class="toggle-section">▼</button>
+          <button class="select-deselect-all">Select/Deselect All</button>
+        </div>
+        <ul class="filter-options">
+          <li><label><input type="checkbox" checked> New</label></li>
+          <li><label><input type="checkbox"> Classic</label></li>
+        </ul>
+      </div>
+    
+      <!-- COMPATIBILITY SECTION -->
+      <div class="filter-section" data-section="compatibility">
+        <div class="filter-header">
+          <h3>COMPATIBILITY</h3>
+          <button class="toggle-section">▼</button>
+          <button class="select-deselect-all">Select/Deselect All</button>
+        </div>
+        <ul class="filter-options">
+          <li><label><input type="checkbox"> HTML5</label></li>
+          <li><label><input type="checkbox"> Mobile</label></li>
+        </ul>
+      </div>
+    </aside>
+    
+
+    <main>
+      <section class="experiment-heading">
+        <h2>🔬 Let's Explore Some Cool Experiments!</h2>
+        <p>"Science is the poetry of reality." — Richard Dawkins</p>
+      </section>
+
+      <!-- Simulation Cards Grid -->
+<div class="simulation-cards" id="simulation">
+  <!-- Card 1 -->
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Buoyancy: Basics</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/buoyancy-basics/latest/buoyancy-basics_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Identify the variables that affect whether an object sinks or floats in a liquid.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/buoyancy-basics/latest/buoyancy-basics_en.html')">Open Full Screen</button>
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Projectile Data Lab</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/projectile-data-lab/latest/projectile-data-lab_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Visualize and hear data resulting from real-world randomness in launch speed and angle</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/projectile-data-lab/latest/projectile-data-lab_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Kepler's Laws</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/keplers-laws/latest/keplers-laws_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Explore how the velocity and position of a planet affect its movement and orbit.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/keplers-laws/latest/keplers-laws_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Models of the Hydrogen Atom</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/models-of-the-hydrogen-atom/latest/models-of-the-hydrogen-atom_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Visualize different models of the hydrogen atom..</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/models-of-the-hydrogen-atom/latest/models-of-the-hydrogen-atom_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Generator</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/generator/latest/generator_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Compare and contrast how the light bulb and voltmeter show characteristics of the induced current.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/generator/latest/generator_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Magnets and Electromagnets</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/magnets-and-electromagnets/latest/magnets-and-electromagnets_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Predict the direction of the magnetic field for different locations around a bar magnet and an electromagnet.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/magnets-and-electromagnets/latest/magnets-and-electromagnets_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>Diffusion</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Explain how two gases mix.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/diffusion/latest/diffusion_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Physics" data-grade="HighSchool" data-release="2023">
+    <h3>States of Matter: Basics</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Describe characteristics of three states of matter: solid, liquid and gas.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/states-of-matter-basics/latest/states-of-matter-basics_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Earth & Space" data-grade="HighSchool" data-release="2023">
+    <h3>Balloons and Static Electricity</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/balloons-and-static-electricity/latest/balloons-and-static-electricity_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Describe and draw models for common static electricity concepts (transfer of charge, induction, attraction, repulsion, and grounding).</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/balloons-and-static-electricity/latest/balloons-and-static-electricity_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Biology" data-grade="HighSchool" data-release="2023">
+    <h3>Gene Expression Essentials</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/gene-expression-essentials/latest/gene-expression-essentials_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Explain the main sequence of events that occur within a cell that leads to protein synthesis.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/gene-expression-essentials/latest/gene-expression-essentials_en.html')">Open Full Screen</button>
+
+  </div>
+
+
+  <div class="simulation-card" data-subject="Biology" data-grade="HighSchool" data-release="2023">
+    <h3>Neuron</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/neuron/latest/neuron_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Describe why ions can or cannot move across neuron membranes.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/neuron/latest/neuron_en.html')">Open Full Screen</button>
+
+  </div>
+
+
+  <div class="simulation-card" data-subject="Chemistry" data-grade="HighSchool" data-release="2023">
+    <h3>Isotopes and Atomic Mass</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/isotopes-and-atomic-mass/latest/isotopes-and-atomic-mass_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Define “isotope” using mass number, atomic number, number of protons, neutrons and electrons.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/isotopes-and-atomic-mass/latest/isotopes-and-atomic-mass_en.html')">Open Full Screen</button>
+
+  </div>
+
+
+  <div class="simulation-card" data-subject="Chemistry" data-grade="HighSchool" data-release="2023">
+    <h3>Acid-Base Solutions</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Given acids or bases at the same concentration, demonstrate understanding of acid and base strength</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/acid-base-solutions/latest/acid-base-solutions_en.html')">Open Full Screen</button>
+
+  </div>
+
+
+  <div class="simulation-card" data-subject="Math & Statistics" data-grade="HighSchool" data-release="2023">
+    <h3>Graphing Quadratics</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/graphing-quadratics/latest/graphing-quadratics_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Describe how changing the coefficients of a quadratic function changes the graph of the function.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/graphing-quadratics/latest/graphing-quadratics_en.html')">Open Full Screen</button>
+
+  </div>
+
+
+  <div class="simulation-card" data-subject="Math & Statistics" data-grade="HighSchool" data-release="2023">
+    <h3>Graphing Slope-Intercept</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/graphing-slope-intercept/latest/graphing-slope-intercept_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Graph a line given an equation in slope-intercept form.</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/graphing-slope-intercept/latest/graphing-slope-intercept_en.html')">Open Full Screen</button>
+
+  </div>
+
+  <div class="simulation-card" data-subject="Earth & Space" data-grade="HighSchool" data-release="2023">
+    <h3>Gravity and Orbits</h3>
+    <iframe src="https://phet.colorado.edu/sims/html/gravity-and-orbits/latest/gravity-and-orbits_en.html"
+            width="100%" height="200" allowfullscreen></iframe>
+    <p>Describe the relationship between the Sun, Earth, Moon and space station, including orbits and positions</p>
+    <button onclick="window.open('https://phet.colorado.edu/sims/html/gravity-and-orbits/latest/gravity-and-orbits_en.html')">Open Full Screen</button>
+
+  </div>
+  
+</div>
+
+  
+      <!-- Physics > Waves Intro -->
+      
+    </div>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-container">
+      <!-- Logo & Tagline -->
+      <!-- Logo & Tagline -->
+<div class="footer-logo">
+  <h2>LabShala.ai</h2>
+  
+  <!-- Logo Image Here -->
+  <img src="images/logo_lab.png" alt="LabShala.ai Logo" class="footer-logo-img">
+  
+  <p>Curiosity Powered Learning ⚡</p>
+</div>
+
+  
+      <!-- Explore Links -->
+      <div class="footer-links">
+        <h3>Explore</h3>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Simulations</a></li>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Newsletter Signup -->
+      <div class="footer-newsletter">
+        <h3>Stay Curious</h3>
+        <p>Subscribe for experiments, facts & updates!</p>
+        <form>
+          <input type="email" placeholder="Your Email" required>
+          <button type="submit">Join</button>
+        </form>
+      </div>
+  
+      <!-- Social Media Icons -->
+      <div class="footer-social">
+        <h3>Let's Connect</h3>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+          <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      
+    </div>
+  
+    <!-- Bottom Note -->
+    <div class="footer-bottom">
+      <p>© 2025 LabShala.ai Made with 🧠 + ❤️ for curious minds.</p>
+    </div>
+  </footer>
+</body>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Load saved state from localStorage
+    const savedFilters = JSON.parse(localStorage.getItem("filterState")) || {};
+  
+    // Restore checkbox states from localStorage
+    document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+      const id = checkbox.value || checkbox.getAttribute("data-sub") || checkbox.getAttribute("data-category");
+      if (savedFilters[id] !== undefined) checkbox.checked = savedFilters[id];
+    });
+  
+    // Save checkbox states to localStorage
+    function saveState() {
+      const state = {};
+      document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+        const id = checkbox.value || checkbox.getAttribute("data-sub") || checkbox.getAttribute("data-category");
+        if (id) state[id] = checkbox.checked;
+      });
+      localStorage.setItem("filterState", JSON.stringify(state));
+    }
+  
+    // Apply filters to show/hide simulation cards
+    function applyFilters() {
+  const activeFilters = {
+    subject: [],
+    grade: [],
+    release: []
+  };
+
+  document.querySelectorAll("input[type='checkbox']:checked").forEach(cb => {
+    const section = cb.closest(".filter-section");
+    if (section) {
+      const sectionName = section.getAttribute("data-section");
+      let value = cb.getAttribute("data-sub") || cb.getAttribute("data-category") || cb.parentElement.textContent.trim();
+
+      if (sectionName && activeFilters[sectionName]) {
+        activeFilters[sectionName].push(value);
+      }
+    }
+  });
+
+  document.querySelectorAll(".simulation-card").forEach(card => {
+    let show = true;
+
+    for (const key in activeFilters) {
+      const filters = activeFilters[key];
+      const cardAttr = card.getAttribute(`data-${key}`);
+
+      if (filters.length > 0 && !filters.includes(cardAttr)) {
+        show = false;
+        break;
+      }
+    }
+
+    card.style.display = show ? "block" : "none";
+  });
+}
+
+  
+    // Auto-unchecking subcategories when main category is toggled
+    document.querySelectorAll(".main-category").forEach((mainCheckbox) => {
+      mainCheckbox.addEventListener("change", () => {
+        const category = mainCheckbox.getAttribute("data-category");
+        const subCheckboxes = document.querySelectorAll(`input[data-sub="${category}"]`);
+        subCheckboxes.forEach((sub) => (sub.checked = mainCheckbox.checked));
+        saveState();
+        applyFilters();
+      });
+    });
+  
+    // Save state and apply filters on any checkbox change
+    document.querySelectorAll("input[type='checkbox']").forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        saveState();
+        applyFilters();
+      });
+    });
+  
+    // Toggle collapse section
+    document.querySelectorAll(".toggle-section").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const section = btn.closest(".filter-section");
+        const options = section.querySelector(".filter-options");
+        if (options) {
+          options.style.maxHeight = options.style.maxHeight ? null : options.scrollHeight + "px";
+          btn.textContent = options.style.maxHeight ? "▲" : "▼";
+        }
+      });
+      // Trigger collapse for initial state
+      btn.click();
+    });
+  
+    // Select/Deselect All
+    document.querySelectorAll(".select-deselect-all").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const section = btn.closest(".filter-section");
+        const checkboxes = section.querySelectorAll("input[type='checkbox']");
+        const allChecked = [...checkboxes].every((cb) => cb.checked);
+        checkboxes.forEach((cb) => (cb.checked = !allChecked));
+        saveState();
+        applyFilters();
+      });
+    });
+  
+    // Live search filter (only for subject section or more)
+    document.querySelectorAll(".search-filter").forEach((searchInput) => {
+      searchInput.addEventListener("input", () => {
+        const filterText = searchInput.value.toLowerCase();
+        const section = searchInput.closest(".filter-section");
+        const labels = section.querySelectorAll("label");
+  
+        labels.forEach((label) => {
+          const text = label.textContent.toLowerCase();
+          label.parentElement.style.display = text.includes(filterText) ? "" : "none";
+        });
+      });
+    });
+  
+    // Smooth checkbox animations
+    const style = document.createElement("style");
+    style.innerHTML = `
+      input[type="checkbox"] {
+        transition: all 0.2s ease;
+      }
+      label {
+        transition: background-color 0.3s;
+      }
+      label:hover {
+        background-color: #f0f0f0;
+      }
+    `;
+    document.head.appendChild(style);
+  
+    // Initial filter application
+    applyFilters();
+  });
+  </script>
+  
+  
+
+</html>

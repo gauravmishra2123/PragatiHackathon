@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LabShala.ai – Teacher Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    canvas {
+      max-width: 100% !important;
+      height: auto !important;
+    }
+    .chart-card {
+      height: 300px;
+    }
+    .radar-chart-card {
+      height: 400px;
+    }
+    .dashboard-scroll {
+      max-height: calc(100vh - 80px);
+      overflow-y: auto;
+    }
+    .nav-links a {
+      display: block;
+      padding: 0.5rem;
+      border-radius: 0.375rem;
+      transition: background-color 0.3s;
+    }
+    .nav-links a:hover {
+      background-color: #e5e7eb;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 font-nunito">
+
+  <div class="p-4 bg-white shadow flex justify-between items-center sticky top-0 z-50">
+    <div class="flex items-center space-x-3">
+      <img src="images/logo_lab.png" alt="LabShala Logo" class="h-10" />
+      <span class="text-xl font-bold text-indigo-600">LabShala.ai - Teacher</span>
+    </div>
+    <div class="flex items-center space-x-4">
+      <span class="text-gray-600">👨‍🏫 Level 3 Mentor</span>
+      <span class="relative">
+        🔔<span class="absolute top-0 right-0 bg-red-500 text-white text-xs rounded-full px-1">2</span>
+      </span>
+      <img src="https://img.icons8.com/emoji/48/teacher.png" class="h-10 w-10 rounded-full" />
+    </div>
+  </div>
+
+  <div class="flex">
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white shadow h-screen p-4 dashboard-scroll">
+      <nav class="nav-links space-y-6">
+        <div>
+          <h2 class="font-bold mb-2">🧭 Dashboard</h2>
+          <ul class="space-y-1">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#calendar">Upcoming Classes</a></li>
+
+          </ul>
+        </div>
+        
+        <div>
+          <h2 class="font-bold mb-2">📊 Analytics</h2>
+          <ul class="space-y-1">
+            <li><a href="#analytics">Student Performance</a></li>
+            <li><a href="#reports">Export Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="font-bold mb-2">📚 Resources</h2>
+          <ul class="space-y-1">
+            <li><a href="#resources">Upload Notes</a></li>
+            <li><a href="#videos">Add Video Lessons</a></li>
+            <li><a href="#external">🔗 External Tools</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="font-bold mb-2">💬 Interaction</h2>
+          <ul class="space-y-1">
+            <li><a href="#doubts">Answer Doubts</a></li>
+            <li><a href="#messages">Student Messages</a></li>
+            <li><a href="#community">Community Forum</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="font-bold mb-2">⚙️ Student Dashboard</h2>
+          <ul class="space-y-1">
+            <li><a href="#Progress">Progress</a></li>
+            
+        </div>
+      </nav>
+      <div class="mt-6 text-sm text-gray-500">🔐 Secured & GDPR Compliant</div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6 overflow-auto dashboard-scroll">
+      <section id="overview" class="mb-6">
+        <h2 class="text-2xl font-bold mb-2">👩‍🏫 Welcome back, Mr. Sharma</h2>
+        <p class="text-gray-600">You’ve taught over <strong>200+ students</strong>. Keep inspiring!</p>
+      </section>
+
+      <section id="analytics" class="mb-10">
+        <h3 class="text-xl font-semibold mb-4">📊 Student Analytics</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+          <!-- Existing Charts -->
+          <div class="bg-white p-4 shadow rounded chart-card">
+            <h4 class="font-semibold mb-2">Daily Engagement</h4>
+            <canvas id="engagementChart"></canvas>
+          </div>
+          <div class="bg-white p-4 shadow rounded chart-card">
+            <h4 class="font-semibold mb-2">Assignment Completion</h4>
+            <canvas id="assignmentChart"></canvas>
+          </div>
+          <div class="bg-white p-4 shadow rounded radar-chart-card col-span-1 md:col-span-2">
+            <h4 class="font-semibold mb-2">Performance Overview</h4>
+            <canvas id="performanceChart"></canvas>
+          </div>
+          <div class="bg-white p-4 shadow rounded chart-card">
+            <h4 class="font-semibold mb-2">Subject-Wise Activity</h4>
+            <canvas id="subjectChart"></canvas>
+          </div>
+      
+          <!-- ✅ New Charts Start Here -->
+          <div class="bg-white p-4 shadow rounded chart-card">
+            <h4 class="font-semibold mb-2">📈 Student Attendance Trend</h4>
+            <canvas id="attendanceChart"></canvas>
+          </div>
+      
+          <div class="bg-white p-4 shadow rounded chart-card">
+            <h4 class="font-semibold mb-2">🏆 Top Performing Students</h4>
+            <canvas id="topStudentsChart"></canvas>
+          </div>
+      
+          <div class="bg-white p-4 shadow rounded chart-card">
+            <h4 class="font-semibold mb-2">💬 Feedback Sentiment</h4>
+            <canvas id="sentimentChart"></canvas>
+          </div>
+          <!-- ✅ New Charts End Here -->
+        </div>
+      </section>
+
+      <section id="upcoming-classes" class="mb-10">
+        <h3 class="text-xl font-semibold mb-4" id="Upcoming">📅 Upcoming Classes</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      
+          <!-- Mini Calendar -->
+          <div class="bg-white p-4 shadow rounded lg:col-span-1">
+            <h4 class="text-md font-semibold mb-2">📌 Class Calendar</h4>
+            <div id="calendar" class="text-sm text-gray-700">
+              <ul class="grid grid-cols-7 gap-1 text-center">
+                <!-- Weekday headers -->
+                <li class="font-bold">S</li><li class="font-bold">M</li><li class="font-bold">T</li>
+                <li class="font-bold">W</li><li class="font-bold">T</li><li class="font-bold">F</li><li class="font-bold">S</li>
+      
+                <!-- Example calendar days -->
+                <li>28</li><li>29</li><li>30</li><li>1</li><li class="bg-blue-200 font-bold rounded">2</li>
+                <li>3</li><li class="bg-green-200 rounded">4</li>
+                <li>5</li><li>6</li><li class="bg-yellow-200 rounded">7</li><li>8</li><li>9</li><li>10</li><li>11</li>
+              </ul>
+              <p class="mt-3 text-xs text-gray-500">📘 Blue: Science Class <br> 📗 Green: Math Class <br> 📙 Yellow: History Class</p>
+            </div>
+          </div>
+      
+          <!-- Class Cards -->
+          <div class="lg:col-span-2 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="bg-white p-4 shadow rounded border-l-4 border-blue-500">
+              <div class="flex justify-between items-center">
+                <h4 class="font-semibold text-blue-600">Science - Biology</h4>
+                <span class="text-sm bg-green-100 text-green-600 px-2 py-0.5 rounded-full">Live</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">🕒 2 May, 10:00 AM - 11:30 AM</p>
+              <p class="text-xs text-gray-500 mt-2">Topic: Human Respiratory System</p>
+              <progress value="100" max="100" class="w-full mt-3 h-2"></progress>
+            </div>
+      
+            <div class="bg-white p-4 shadow rounded border-l-4 border-green-500">
+              <div class="flex justify-between items-center">
+                <h4 class="font-semibold text-green-600">Math - Algebra</h4>
+                <span class="text-sm bg-yellow-100 text-yellow-600 px-2 py-0.5 rounded-full">Scheduled</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">🕒 4 May, 12:00 PM - 1:00 PM</p>
+              <p class="text-xs text-gray-500 mt-2">Topic: Quadratic Equations</p>
+              <progress value="70" max="100" class="w-full mt-3 h-2"></progress>
+            </div>
+      
+            <div class="bg-white p-4 shadow rounded border-l-4 border-yellow-500">
+              <div class="flex justify-between items-center">
+                <h4 class="font-semibold text-yellow-600">History - Ancient India</h4>
+                <span class="text-sm bg-gray-200 text-gray-800 px-2 py-0.5 rounded-full">Scheduled</span>
+              </div>
+              <p class="text-sm text-gray-600 mt-1">🕒 7 May, 9:30 AM - 10:30 AM</p>
+              <p class="text-xs text-gray-500 mt-2">Topic: Mauryan Empire</p>
+              <progress value="30" max="100" class="w-full mt-3 h-2 bg-red-200"></progress>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+
+
+      <section id="resources" class="mb-10">
+        <h3 class="text-xl font-semibold mb-4">📚 Manage Resources</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white p-4 shadow rounded">
+            <h4 class="font-semibold mb-2">Upload Notes</h4>
+            <input type="file" class="border p-2 w-full mb-2" />
+            <button class="bg-indigo-500 text-white px-4 py-2 rounded w-full">Upload</button>
+          </div>
+          <div class="bg-white p-4 shadow rounded">
+            <h4 class="font-semibold mb-2">Add Video Lessons</h4>
+            <button class="bg-indigo-500 text-white px-4 py-2 rounded w-full">Add Video</button>
+          </div>
+          <div class="bg-white p-4 shadow rounded">
+            <h4 class="font-semibold mb-2">Create Assignments</h4>
+            <button class="bg-indigo-500 text-white px-4 py-2 rounded w-full">Create</button>
+          </div>
+        </div>
+      </section>
+
+      <div class="overflow-x-auto shadow-lg rounded-lg">
+        <h2 class="text-2xl font-semibold mb-4 text-center" id="Progress">Student Dashboard</h2>
+        <table class="min-w-full bg-white table-auto">
+          <thead>
+            <tr class="bg-gray-800 text-white">
+              <th class="px-6 py-4 text-left">Student Name</th>
+              <th class="px-6 py-4 text-left">Class Status</th>
+              <th class="px-6 py-4 text-left">Attendance</th>
+              <th class="px-6 py-4 text-left">Progress</th>
+              <th class="px-6 py-4 text-left">Grade</th>
+              <th class="px-6 py-4 text-left">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Student 1 -->
+            <tr class="border-t">
+              <td class="px-6 py-4">John Doe</td>
+              <td class="px-6 py-4">
+                <span class="inline-block bg-green-200 text-green-800 text-xs font-bold py-1 px-3 rounded-full">Active</span>
+              </td>
+              <td class="px-6 py-4">
+                <i class="fas fa-check-circle text-green-500"></i> Present
+              </td>
+              <td class="px-6 py-4">
+                <div class="relative pt-1">
+                  <div class="flex mb-2 items-center justify-between">
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                      75% Completed
+                    </span>
+                  </div>
+                  <div class="flex mb-2">
+                    <div class="w-full bg-gray-200 rounded-full">
+                      <div class="bg-green-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 75%">
+                        75%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="text-lg font-semibold text-blue-600">A</span>
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">View</button>
+              </td>
+            </tr>
+      
+            <!-- Student 2 -->
+            <tr class="border-t">
+              <td class="px-6 py-4">Jane Smith</td>
+              <td class="px-6 py-4">
+                <span class="inline-block bg-yellow-200 text-yellow-800 text-xs font-bold py-1 px-3 rounded-full">Inactive</span>
+              </td>
+              <td class="px-6 py-4">
+                <i class="fas fa-times-circle text-red-500"></i> Absent
+              </td>
+              <td class="px-6 py-4">
+                <div class="relative pt-1">
+                  <div class="flex mb-2 items-center justify-between">
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-yellow-600 bg-yellow-200">
+                      50% Completed
+                    </span>
+                  </div>
+                  <div class="flex mb-2">
+                    <div class="w-full bg-gray-200 rounded-full">
+                      <div class="bg-yellow-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 50%">
+                        50%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="text-lg font-semibold text-blue-600">B</span>
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">View</button>
+              </td>
+            </tr>
+      
+            <!-- Student 3 -->
+            <tr class="border-t">
+              <td class="px-6 py-4">Mark Lee</td>
+              <td class="px-6 py-4">
+                <span class="inline-block bg-green-200 text-green-800 text-xs font-bold py-1 px-3 rounded-full">Active</span>
+              </td>
+              <td class="px-6 py-4">
+                <i class="fas fa-check-circle text-green-500"></i> Present
+              </td>
+              <td class="px-6 py-4">
+                <div class="relative pt-1">
+                  <div class="flex mb-2 items-center justify-between">
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                      80% Completed
+                    </span>
+                  </div>
+                  <div class="flex mb-2">
+                    <div class="w-full bg-gray-200 rounded-full">
+                      <div class="bg-green-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 80%">
+                        80%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="text-lg font-semibold text-blue-600">A+</span>
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">View</button>
+              </td>
+            </tr>
+      
+            <!-- Student 4 -->
+            <tr class="border-t">
+              <td class="px-6 py-4">Emily Johnson</td>
+              <td class="px-6 py-4">
+                <span class="inline-block bg-red-200 text-red-800 text-xs font-bold py-1 px-3 rounded-full">Suspended</span>
+              </td>
+              <td class="px-6 py-4">
+                <i class="fas fa-times-circle text-red-500"></i> Absent
+              </td>
+              <td class="px-6 py-4">
+                <div class="relative pt-1">
+                  <div class="flex mb-2 items-center justify-between">
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-red-600 bg-red-200">
+                      30% Completed
+                    </span>
+                  </div>
+                  <div class="flex mb-2">
+                    <div class="w-full bg-gray-200 rounded-full">
+                      <div class="bg-red-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 30%">
+                        30%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="text-lg font-semibold text-blue-600">C</span>
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">View</button>
+              </td>
+            </tr>
+      
+            <!-- Student 5 -->
+            <tr class="border-t">
+              <td class="px-6 py-4">Sophia Turner</td>
+              <td class="px-6 py-4">
+                <span class="inline-block bg-green-200 text-green-800 text-xs font-bold py-1 px-3 rounded-full">Active</span>
+              </td>
+              <td class="px-6 py-4">
+                <i class="fas fa-check-circle text-green-500"></i> Present
+              </td>
+              <td class="px-6 py-4">
+                <div class="relative pt-1">
+                  <div class="flex mb-2 items-center justify-between">
+                    <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-green-600 bg-green-200">
+                      60% Completed
+                    </span>
+                  </div>
+                  <div class="flex mb-2">
+                    <div class="w-full bg-gray-200 rounded-full">
+                      <div class="bg-green-500 text-xs leading-none py-1 text-center text-white rounded-full" style="width: 60%">
+                        60%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <span class="text-lg font-semibold text-blue-600">B+</span>
+              </td>
+              <td class="px-6 py-4">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg">View</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      
+        <!-- Expand Button -->
+        <div class="text-center mt-4">
+          <button class="bg-teal-500 text-white px-6 py-3 rounded-lg" id="expandBtn" onclick="toggleExpand()">Expand</button>
+        </div>
+      
+        <!-- Expanded Section -->
+        <div class="mt-6 hidden" id="expandedSection">
+          <h3 class="text-xl font-semibold text-center">Detailed Student Information</h3>
+          <div class="bg-gray-100 p-4 rounded-lg mt-4">
+            <p class="text-lg">Here you can display more detailed information for each student, such as class schedules, upcoming assignments, or personalized notes.</p>
+            <!-- You can add dynamic content here -->
+          </div>
+        </div>
+      </div>
+      
+
+    </main>
+  </div>
+
+  <script>
+    new Chart(document.getElementById('engagementChart'), {
+      type: 'line',
+      data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        datasets: [{
+          label: 'Active Students',
+          data: [30, 25, 28, 35, 40],
+          borderColor: '#4e73df',
+          fill: false
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('assignmentChart'), {
+      type: 'doughnut',
+      data: {
+        labels: ['Completed', 'Pending'],
+        datasets: [{
+          data: [80, 20],
+          backgroundColor: ['#1cc88a', '#e74a3b']
+        }]
+      }
+    });
+
+    new Chart(document.getElementById('performanceChart'), {
+      type: 'radar',
+      data: {
+        labels: ['Physics', 'Chemistry', 'Math', 'Biology'],
+        datasets: [{
+          label: 'Average Score',
+          data: [85, 78, 90, 70],
+          backgroundColor: 'rgba(78, 115, 223, 0.2)',
+          borderColor: '#4e73df'
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false
+      }
+    });
+
+    new Chart(document.getElementById('subjectChart'), {
+      type: 'bar',
+      data: {
+        labels: ['Physics', 'Chemistry', 'Math', 'Biology'],
+        datasets: [{
+          label: 'Experiments Assigned',
+          data: [5, 4, 6, 3],
+          backgroundColor: ['#f6c23e', '#858796', '#36b9cc', '#20c997']
+        }]
+      }
+    });
+    new Chart(document.getElementById("attendanceChart"), {
+    type: 'line',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      datasets: [{
+        label: 'Attendance (%)',
+        data: [92, 85, 88, 90, 95],
+        borderColor: '#6366F1',
+        backgroundColor: 'rgba(99, 102, 241, 0.2)',
+        fill: true,
+        tension: 0.4
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } }
+    }
+  });
+
+  // Chart: Top Performing Students
+  new Chart(document.getElementById("topStudentsChart"), {
+    type: 'bar',
+    data: {
+      labels: ['Aryan', 'Sneha', 'Rahul', 'Meena', 'Vikram'],
+      datasets: [{
+        label: 'Scores',
+        data: [96, 93, 91, 89, 87],
+        backgroundColor: '#10B981'
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { beginAtZero: true, max: 100 }
+      }
+    }
+  });
+
+  // Chart: Student Feedback Sentiment
+  new Chart(document.getElementById("sentimentChart"), {
+    type: 'doughnut',
+    data: {
+      labels: ['Positive', 'Neutral', 'Negative'],
+      datasets: [{
+        data: [65, 25, 10],
+        backgroundColor: ['#3B82F6', '#FBBF24', '#EF4444']
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'bottom'
+        }
+      }
+    }
+  });
+  // Function to toggle the expanded section visibility
+document.getElementById('expandBtn').addEventListener('click', function () {
+  const expandedSection = document.getElementById('expandedSection');
+  const expandBtn = document.getElementById('expandBtn');
+  
+  expandedSection.classList.toggle('hidden');
+  expandBtn.innerText = expandedSection.classList.contains('hidden') ? 'Expand' : 'Collapse';
+});
+
+  </script>
+
+</body>
+</html>

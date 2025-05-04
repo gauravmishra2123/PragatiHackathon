@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LabShala.ai – Student Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+
+  <div class="dashboard-container">
+    <div class="labtop-bar">
+        <div class="labtop-logo">
+            <img src="images/logo_lab.png" alt="LabShala Logo" />
+            <span>LabShala.ai</span>
+          </div>
+      <div class="labtop-left">
+        
+        <div class="labtop-welcome">
+          <h2>Welcome back, Priya 👋</h2>
+        </div>
+      </div>
+    
+      <div class="labtop-right">
+        <div class="labtop-notification">
+          <span class="labtop-bell">🔔</span>
+          <span class="labtop-badge">3</span>
+        </div>
+        <div class="labtop-level">
+          🧠 Level 4 Scientist
+        </div>
+        <div class="labtop-level">
+            <a href="index.html">HOME</a>
+          </div>
+        <div class="labtop-profile">
+          <img src="https://img.icons8.com/emoji/48/student-emoji.png" alt="profile" />
+        </div>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <div class="sidebar">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <nav class="nav-links">
+              
+              <!-- Dashboard Group -->
+              <div class="menu-group">
+                <a href="#" class="menu-title">🧭 Dashboard</a>
+                <ul>
+                  <li><a href="#exeprement">🧪 Explore Labs</a></li>
+                  <li><a href="#">🧬 My Experiments</a></li>
+                </ul>
+              </div>
+          
+              <!-- Learning Group -->
+              <div class="menu-group">
+                <a href="#" class="menu-title">🏆 Learning</a>
+                <ul>
+                  <li><a href="#chart">📊 My Progress</a></li>
+                  <li><a href="#weekly">🎯 Weekly Progress</a></li>
+                </ul>
+              </div>
+          
+              <!-- Resources Group -->
+              <div class="menu-group">
+                <a href="#resource" class="menu-title">📚 Resources</a>
+                <ul>
+                  <li><a href="#resource">📒 Notes</a></li>
+                  <li><a href="#resource">📹 Video Lessons</a></li>
+                </ul>
+              </div>
+          
+              <!-- Support Group -->
+              <div class="menu-group">
+                <a href="#" class="menu-title">❓ Support</a>
+                <ul>
+                  <li><a href="#">💬 Ask a Doubt</a></li>
+                  <li><a href="#">🧑‍🤝‍🧑 Community</a></li>
+                </ul>
+              </div>
+          
+              <!-- Saved Group -->
+              <div class="menu-group">
+                <a href="#" class="menu-title">💾 Saved</a>
+                <ul>
+                  <li><a href="#">💾 Saved Items</a></li>
+                </ul>
+              </div>
+          
+            </nav>
+          
+            <div class="footer">👨‍🔬 Happy Learning, Young Scientist!</div>
+          </aside>          
+          
+      </div>
+
+
+
+      <section class="category-section" id="exeprement">
+        <div class="section-header">
+          <h2>Choose Your Subject</h2>
+          <p>Explore Simulation and start learning with hands-on experiences</p>
+        </div>
+      
+
+        <a href="physics_fixed.html">
+        <div class="subject-grid">
+                <div class="subject-card physics">
+                    <h3>PHYSICS</h3>
+                    <img src="images/icons8-prism-64.png" alt="LabShala Logo" />
+                    <br>
+            <h4>Step Into SIM</h4>
+                   
+                </div>
+            </a>         
+            
+            <a href="physics_fixed.html">
+          <div class="subject-card math">
+            <h3>MATHS</h3>
+            <img src="images/icons8-business-64.png" alt="LabShala Logo" />
+            <br>
+            <h4>Step Into SIM</h4>
+          </div>
+        </a>
+        
+
+          <a href="physics_fixed.html">
+          <div class="subject-card chemistry">
+            <h3>CHEMISTRY</h3>
+            <img src="images/icons8-chemistry-64.png" alt="LabShala Logo" />
+            <br>
+
+            <h4>Step Into SIM</h4>
+          </div>
+          </a>
+
+          <a href="physics_fixed.html">
+          <div class="subject-card earth">
+            <h3>EARTH & SPACE</h3>
+            <img src="images/icons8-earth-64.png" alt="LabShala Logo" />
+            
+            <h4>Step Into SIM</h4>
+
+          </div>
+            </a>
+
+            <a href="physics_fixed.html">
+          <div class="subject-card biology">
+            <h3>BIOLOGY</h3>
+            <img src="images/icons8-biology-64.png" alt="LabShala Logo" />
+            <h4>Step Into SIM</h4>
+          </div>
+            </a>
+        </div>
+            
+
+        
+        <section class="progress-section" id="chart">
+            <div class="container">
+              <div class="section-header">
+                <h2>My Progress</h2>
+                <p>Visualize your learning and experimentation journey.</p>
+              </div>
+          
+              <div class="progress-grid">
+                <!-- Weekly Activity -->
+                <div class="progress-card">
+                  <h3>Weekly Activity</h3>
+                  <canvas id="weeklyChart"></canvas>
+                </div>
+          
+                <!-- Completion Rate -->
+                <div class="progress-card">
+                  <h3>Completion Rate</h3>
+                  <canvas id="completionChart"></canvas>
+                </div>
+          
+                <!-- Time Spent -->
+                <div class="progress-card">
+                  <h3>Time Spent</h3>
+                  <canvas id="timeChart"></canvas>
+                </div>
+          
+                <!-- Experiment Types -->
+                <div class="progress-card">
+                  <h3>Experiment Types</h3>
+                  <canvas id="typeChart"></canvas>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="progress-table-section" id="weekly">
+            <h2 class="progress-heading">📈 Weekly Experiment Progress</h2>
+            <table class="progress-table">
+              <thead>
+                <tr>
+                  <th>Week</th>
+                  <th>Experiments Done</th>
+                  <th>Completion %</th>
+                  <th>Avg Time/Experiment</th>
+                  <th>Top Subject</th>
+                  <th>New Concepts Learned</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Week 1</td>
+                  <td>4</td>
+                  <td>75%</td>
+                  <td>1.2 hrs</td>
+                  <td>Physics</td>
+                  <td>Refraction, Force</td>
+                </tr>
+                <tr>
+                  <td>Week 2</td>
+                  <td>6</td>
+                  <td>83%</td>
+                  <td>1 hr</td>
+                  <td>Chemistry</td>
+                  <td>pH Levels, Bonds</td>
+                </tr>
+                <tr>
+                  <td>Week 3</td>
+                  <td>5</td>
+                  <td>80%</td>
+                  <td>1.1 hrs</td>
+                  <td>Biology</td>
+                  <td>Cell Structure, DNA</td>
+                </tr>
+                <tr>
+                  <td>Week 4</td>
+                  <td>7</td>
+                  <td>86%</td>
+                  <td>0.9 hrs</td>
+                  <td>Math</td>
+                  <td>Statistics, Probability</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <section class="resources-section" id="resource">
+            <h2 class="resources-title">📚 Learning Resources</h2>
+            <p class="resources-subtitle">Access all your materials in one place – stay organized and focused.</p>
+          
+            <div class="resources-grid">
+              <!-- Assignment -->
+              <div class="resources-card">
+                <img src="images/icons8-assignment-64.png" alt="Assignments Icon" />
+                <h3>Assignments</h3>
+                <p>Practice what you've learned with curated assignments and track your submissions.</p>
+                <a href="#" class="resources-btn">View Assignments</a>
+              </div>
+          
+              <!-- Notes -->
+              <div class="resources-card">
+                <img src="images/icons8-notes-64.png" alt="Notes Icon" />
+                <h3>Notes</h3>
+                <p>Quick revision with concise, subject-wise notes for your experiments and theory.</p>
+                <a href="#" class="resources-btn">Access Notes</a>
+              </div>
+          
+              <!-- Video Lessons -->
+              <div class="resources-card">
+                <img src="images/icons8-video-47.png" alt="Videos Icon" />
+                <h3>Video Lessons</h3>
+                <p>Visualize difficult concepts with interactive video tutorials tailored to your curriculum.</p>
+                <a href="#" class="resources-btn">Watch Lessons</a>
+              </div>
+            </div>
+          </section>
+          
+          
+          
+          
+      </section>
+
+      <section class="my-experiments-section">
+        <div class="container">
+          <div class="section-header">
+            <h2>My Experiments</h2>
+            <p>Track your hands-on learning journey. Document, review, and share your scientific discoveries.</p>
+          </div>
+      
+          <div class="experiment-grid">
+            <div class="experiment-card">
+                <iframe src="https://phet.colorado.edu/sims/html/color-vision/latest/color-vision_en.html"
+                width="200"
+                height="200"
+                allowfullscreen>
+        </iframe>
+              <h3>Color Vision</h3>
+              <p>Determine what color the person sees for various combinations of red, green, and blue light..</p>
+            </div>
+            <div class="experiment-card">
+              <iframe src="https://phet.colorado.edu/sims/html/blackbody-spectrum/latest/blackbody-spectrum_en.html"
+              width="200"
+                height="200"
+              allowfullscreen>
+      </iframe>
+              <h3>Blackbody Spectrum</h3>
+              <p>IDescribe what happens to the blackbody spectrum as you increase or decrease the temperature. What happens to the shape of the curve and the peak of this curve.</p>
+            </div>
+
+            <div class="experiment-card">
+                <iframe src="https://phet.colorado.edu/sims/html/ph-scale/latest/ph-scale_en.html"
+                width="200"
+                height="200"
+        allowfullscreen>
+</iframe>
+                <h3>pH Scale</h3>
+                <p>Determine if a liquid is acidic, basic, or neutral.</p>
+              </div>
+
+              <div class="experiment-card">
+                <iframe src="https://phet.colorado.edu/sims/html/curve-fitting/latest/curve-fitting_en.html"
+                width="200"
+                height="200"
+        allowfullscreen>
+</iframe>
+                <h3>Curve Fitting</h3>
+                <p>Explain how the range and uncertainty and number of data points affect correlation coefficient and chi squared.</p>
+              </div>
+            <!-- Add more cards here -->
+          </div>
+      
+          <div class="experiment-cta">
+            <a href="/new-experiment">+ Start New Experiment</a>
+          </div>
+        </div>
+
+        
+      </section>
+      
+      
+      
+      
+      
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const weeklyCtx = document.getElementById('weeklyChart').getContext('2d');
+  new Chart(weeklyCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Experiments',
+        data: [2, 1, 3, 1, 2, 0, 1],
+        backgroundColor: '#4e73df'
+      }]
+    }
+  });
+
+  const completionCtx = document.getElementById('completionChart').getContext('2d');
+  new Chart(completionCtx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Completed', 'Pending'],
+      datasets: [{
+        data: [75, 25],
+        backgroundColor: ['#1cc88a', '#e74a3b']
+      }]
+    }
+  });
+
+  const timeCtx = document.getElementById('timeChart').getContext('2d');
+  new Chart(timeCtx, {
+    type: 'line',
+    data: {
+      labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+      datasets: [{
+        label: 'Hours',
+        data: [4, 6, 5, 7],
+        borderColor: '#36b9cc',
+        fill: false
+      }]
+    }
+  });
+
+  const typeCtx = document.getElementById('typeChart').getContext('2d');
+  new Chart(typeCtx, {
+    type: 'pie',
+    data: {
+      labels: ['Physics', 'Chemistry', 'Biology'],
+      datasets: [{
+        data: [5, 3, 2],
+        backgroundColor: ['#f6c23e', '#858796', '#20c997']
+      }]
+    }
+  });
+</script>
+
+</body>
+</html>
