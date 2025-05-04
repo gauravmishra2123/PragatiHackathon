@@ -1,4 +1,10 @@
 # 🔬 LabShala.ai – Bridging the Lab Gap with AI
+
+## 🔗 Live Demo
+
+You can try the live demo here: [Demo Link](https://labshala.netlify.app)
+
+
 # Introduction
 LabShala.ai is an open-source AI-powered platform designed to bring hands-on science learning to schools that lack access to physical laboratories. Built with a blend of interactive simulations, intelligent tutoring, and student performance analytics, it enables students to perform experiments, get guided support, and build real-world skills—all from a device.
 Inspired by decades of grassroots experience in running schools, our mission is to make STEM education practical, accessible, and personalized for every learner, especially in underfunded regions.
