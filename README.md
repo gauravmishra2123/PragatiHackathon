@@ -9,6 +9,10 @@ Many schools, especially in underfunded or rural areas, lack well-equipped scien
 # Solution 
 We are building AI-powered virtual science labs to bring hands-on STEM education to every student —
 regardless of their location or school resources.
+<br>
+<img width="1440" alt="Screenshot 2025-05-04 at 8 34 38 PM" src="https://github.com/user-attachments/assets/771e7bf2-2177-4b5d-a70c-be32a1c96e24" />
+
+
 # 🔬 What it is:
 A fully digital, interactive platform where students can perform science experiments virtually, just like in
 a physical lab.
@@ -16,14 +20,14 @@ a physical lab.
 Students log in to a virtual lab space.
 AI guides them step-by-step through experiments.
 Instant feedback, explanations, and assessments make learning intuitive and fun.
+<br>
+<img width="1440" alt="Screenshot 2025-05-04 at 8 36 36 PM" src="https://github.com/user-attachments/assets/94a999d6-3add-4935-8a5f-65989b450f84" />
+
+
 # 🌍 Why it matters:
 No physical lab or equipment needed — just a device and internet.
 Removes the barrier of cost and infrastructure.
 Makes science learning accessible, immersive, and future-ready.
-
-<img width="1440" alt="Screenshot 2025-05-04 at 8 34 38 PM" src="https://github.com/user-attachments/assets/771e7bf2-2177-4b5d-a70c-be32a1c96e24" />
-
-<img width="1440" alt="Screenshot 2025-05-04 at 8 36 36 PM" src="https://github.com/user-attachments/assets/94a999d6-3add-4935-8a5f-65989b450f84" />
 
 # 🔑 Key Features of LabShala.ai
 1. AI-Powered Virtual Labs – Enables students to perform science experiments digitally, simulating real lab experiences.
