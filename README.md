@@ -1,10 +1,10 @@
-# 🔬 GuruKul.ai – Bridging the Lab Gap with AI
+# 🔬 LabShala.ai – Bridging the Lab Gap with AI
 # Introduction
-GuruKul.ai is an open-source AI-powered platform designed to bring hands-on science learning to schools that lack access to physical laboratories. Built with a blend of interactive simulations, intelligent tutoring, and student performance analytics, it enables students to perform experiments, get guided support, and build real-world skills—all from a device.
+LabShala.ai is an open-source AI-powered platform designed to bring hands-on science learning to schools that lack access to physical laboratories. Built with a blend of interactive simulations, intelligent tutoring, and student performance analytics, it enables students to perform experiments, get guided support, and build real-world skills—all from a device.
 Inspired by decades of grassroots experience in running schools, our mission is to make STEM education practical, accessible, and personalized for every learner, especially in underfunded regions.
 
 # Problem Statement Addressed 
-Many schools, especially in underfunded or rural areas, lack well-equipped science labs and trained educators. This leads to students missing out on essential practical learning and reduces their engagement with STEM fields. GuruKul.ai directly tackles this by providing an AI-powered virtual lab solution, enabling hands-on learning through interactive simulations, intelligent tutoring, and performance monitoring, even without physical lab infrastructure.
+Many schools, especially in underfunded or rural areas, lack well-equipped science labs and trained educators. This leads to students missing out on essential practical learning and reduces their engagement with STEM fields. LabShala.ai directly tackles this by providing an AI-powered virtual lab solution, enabling hands-on learning through interactive simulations, intelligent tutoring, and performance monitoring, even without physical lab infrastructure.
 
 # Solution 
 We are building AI-powered virtual science labs to bring hands-on STEM education to every student —
@@ -21,7 +21,11 @@ No physical lab or equipment needed — just a device and internet.
 Removes the barrier of cost and infrastructure.
 Makes science learning accessible, immersive, and future-ready.
 
-# 🔑 Key Features of GuruKul.ai
+<img width="1440" alt="Screenshot 2025-05-04 at 8 34 38 PM" src="https://github.com/user-attachments/assets/771e7bf2-2177-4b5d-a70c-be32a1c96e24" />
+
+<img width="1440" alt="Screenshot 2025-05-04 at 8 36 36 PM" src="https://github.com/user-attachments/assets/94a999d6-3add-4935-8a5f-65989b450f84" />
+
+# 🔑 Key Features of LabShala.ai
 1. AI-Powered Virtual Labs – Enables students to perform science experiments digitally, simulating real lab experiences.
 2. Intelligent Tutoring System – Offers guided, interactive support during experiments with step-by-step assistance.
 3. Performance Monitoring & Analytics – Tracks student progress, learning patterns, and provides real-time insights.
@@ -31,6 +35,7 @@ Makes science learning accessible, immersive, and future-ready.
 7. Accessible & Scalable – Designed to work on low-end devices and in areas with limited infrastructure.
 8. Gamified Learning Experience – Keeps students engaged through interactive visuals, challenges, and rewards.
 9. Multi-Language Support – Ensures inclusivity by supporting regional languages for better understanding.
+
 
 # High level Architecture Diagram
 
