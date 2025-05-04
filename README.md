@@ -46,6 +46,10 @@ Makes science learning accessible, immersive, and future-ready.
 8. Gamified Learning Experience – Keeps students engaged through interactive visuals, challenges, and rewards.
 9. Multi-Language Support – Ensures inclusivity by supporting regional languages for better understanding.
 
+# Wire Frame Diagram
+![diagram-export-5-2-2025-3_46_21-PM](https://github.com/user-attachments/assets/90f8735d-5abd-47cc-bb02-739601627760)
+
+
 
 # High level Architecture Diagram
 
