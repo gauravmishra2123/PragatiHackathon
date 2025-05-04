@@ -87,10 +87,10 @@ Used for lightweight ML tasks such as classification, clustering, and recommenda
 ### 3. Simulation Lab Page
 <img width="1440" alt="Simulation Lab Page" src="https://github.com/user-attachments/assets/6f6a44c6-2089-46a6-8a33-f6749a6f69b5" />
 
-### 4. Teacher's Dashboard
+### 4. SIMULATION of Keppler's Law
 <img width="1440" alt="Teacher Dashboard" src="https://github.com/user-attachments/assets/bf963da8-ec37-4248-af02-457ce8963288" />
 
-### 5. Additional View (Optional)
+### 5. Teacher's Dashboard
 <img width="1440" alt="Additional View" src="https://github.com/user-attachments/assets/9cbbb139-4c59-4948-86ab-c75b85174a18" />
 
 
