@@ -77,14 +77,17 @@ Custom-trained models for adaptive learning pathways and student performance pre
 Used for lightweight ML tasks such as classification, clustering, and recommendation systems.
 
 # Demo / Screenshots
+<br>
 
-<img width="450" alt="Screenshot 2025-04-08 at 9 05 04 AM" src="https://github.com/user-attachments/assets/ddf5ddd6-6ce1-4545-b9b0-a13cfa7917a7" />
-
-<img width="450" alt="Screenshot 2025-04-08 at 9 05 27 AM" src="https://github.com/user-attachments/assets/86371d1a-e036-4992-be84-25f1a5efeb36" />
-
-<img width="650" alt="Screenshot 2025-04-08 at 9 06 02 AM" src="https://github.com/user-attachments/assets/fa87b0dc-7370-418c-a5ac-64fa10e36044" />
-
-<img width="667" alt="Screenshot 2025-04-08 at 9 06 29 AM" src="https://github.com/user-attachments/assets/3e612ed2-8a0b-4001-9bed-bd87c2b8e1da" />
+<img width="611" alt="Screenshot 2025-05-04 at 8 41 01 PM" src="https://github.com/user-attachments/assets/f8d24ce7-8766-4500-9ccf-feac82fd0fc0" />
+<br>
+<img width="1440" alt="Screenshot 2025-05-04 at 8 42 26 PM" src="https://github.com/user-attachments/assets/356e52ff-79f4-48ca-9487-43221551ff39" />
+<br>
+<img width="1440" alt="Screenshot 2025-05-04 at 8 43 38 PM" src="https://github.com/user-attachments/assets/6f6a44c6-2089-46a6-8a33-f6749a6f69b5" />
+<br>
+<img width="1440" alt="Screenshot 2025-05-04 at 8 48 11 PM" src="https://github.com/user-attachments/assets/bf963da8-ec37-4248-af02-457ce8963288" />
+<br>
+<img width="1440" alt="Screenshot 2025-05-04 at 8 48 51 PM" src="https://github.com/user-attachments/assets/9cbbb139-4c59-4948-86ab-c75b85174a18" />
 
 
 
